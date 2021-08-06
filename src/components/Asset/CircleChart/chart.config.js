@@ -5,7 +5,6 @@ import { accMul } from '../../../utils/asset.js'
 
 // 圆环图
 export const getCircle = (value, trend) => {
-  console.log('数据', value, trend)
   const imgsrc = trend === 1 ? imgUp : trend === -1 ? imgDown : trend === 0 ? imgUnchange : null
   const options = {
     title: [{

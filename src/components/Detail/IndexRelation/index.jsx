@@ -87,7 +87,7 @@ export default class index extends Component {
       children: []
     }
     if (resultList.subset) { // 两层
-      resultList.subset.map((val, valIndex) => {
+      resultList.subset.map(val => {
         const obj = {
           name: val.name,
           id: val.secId === undefined ? val.assetId + ' nodeSub_assetId' + flagIndex : val.secId + ' nodeSub_secId' + flagIndex,
@@ -95,7 +95,7 @@ export default class index extends Component {
           children: []
         }
         if (val.subset) { // 三层
-          val.subset.map((subItem, subIndex) => {
+          val.subset.map(subItem => {
             flagIndex++
             verticalThree++
             obj.children.push({

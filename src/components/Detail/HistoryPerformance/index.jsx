@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import * as echarts from 'echarts'
-import {Table, Spin, DatePicker} from 'antd'
-const { RangePicker } = DatePicker;
+import {Table, Spin} from 'antd'
 import { getHistoryLine } from './chart.config'
 import { accMul } from '../../../utils/asset.js'
 import { calcBoundary } from '../../../utils/assetRequest.js'

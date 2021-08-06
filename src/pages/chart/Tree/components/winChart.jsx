@@ -68,7 +68,7 @@ export default class WinChart extends Component {
           {
             ctaTips.map(item => {
               return (
-                <div className="ctaTips">
+                <div key={item.title} className="ctaTips">
                   <span className="tipsTitle">{item.title}</span>
                   <span>{item.content}</span>
                 </div>
@@ -81,7 +81,7 @@ export default class WinChart extends Component {
           {
             annotation.map(annoItem => {
               return (
-                <div className={annoItem.className} key={annoItem.title}>{annoItem.title}</div>
+                <div key={annoItem.title} className={annoItem.className} key={annoItem.title}>{annoItem.title}</div>
               )
             })
           }

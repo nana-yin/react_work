@@ -135,5 +135,6 @@ export const getHistoryLine = (xData = [], seriseData = [], ySerise = [], legend
     options.grid.left = 8 + (nameLength - 12) + '%'
     options.grid.right = 10 + (nameLength - 14) + '%'
   }
+  console.log('---', options)
   return options
 }

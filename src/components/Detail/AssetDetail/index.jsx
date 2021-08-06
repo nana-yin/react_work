@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import {Table} from 'antd'
 import * as echarts from 'echarts';
 import {colorMap,accMul, changNunToText} from '../../../utils/asset.js'
-import {getAssetSmall, getAssetStrategy, getIndusty} from '../../../../mock/detail'
+// 引入小类资产、行业策略假数据
+import {getAssetSmall, getIndusty} from '../../../../mock/detail'
+// 引入风格策略假数据
+import {getAssetStrategy} from '../../../../mock/styleCard'
 import {getDashChart} from './chart.config.js'
 import trendDown from '../../../../public/images/marketPerspectiveUp.png'
 import trendUnchange from '../../../../public/images/marketPerspectiveUnchang.png'
@@ -31,7 +34,7 @@ export default class AssetDetail extends Component {
       key: 'name',
       dataIndex: 'name',
       width: 100,
-      render: (text, record) => (
+      render: (text) => (
         <span className="dashStatus">{ text }</span>
       ),
     },
@@ -40,7 +43,7 @@ export default class AssetDetail extends Component {
       key: 'status',
       dataIndex: 'status',
       width: 100,
-      render: (text, record) => (
+      render: (text) => (
         <span className="dashStatus"
         style = {{
           color: text !== '--' ? colorMap[text] : '',
@@ -67,7 +70,7 @@ export default class AssetDetail extends Component {
       key: 'transformData',
       dataIndex: 'transformData',
       width: 150,
-      render: (text, record) => (
+      render: (_, record) => (
         <span id={record.key ? record.key : record.name} className="dashChange" />
       )
     }, {
@@ -75,7 +78,7 @@ export default class AssetDetail extends Component {
       key: 'action',
       dataIndex: 'action',
       width: 120,
-      render: (text, record) => (
+      render: (_, record) => (
         <a className="dashAction" onClick={() => {this.goDashAction(record)}}>详情</a>
       ),
     }],
@@ -124,19 +127,18 @@ export default class AssetDetail extends Component {
   tableDataInit() {
     const {tableData} = this.state
     const {id, type} = this.props
-    // console.log('数据', this.echartData)
     // 大类资产-》largeClassAsset  小类资产-》smallClassAsset  A股风格-》styleStrategy  A股行业-》industryStrategy
     const dataRes = [{
-      key: tableData.fmtOdds.secId ? tableData.fmtOdds.secId : 1,
+      key: 1,
       name: '盈亏比',
       status: '较低',
-      numerical: tableData.fmtOdds.length > 0 ? (accMul(accMul(tableData.fmtOdds[tableData.fmtOdds.length - 1], 100), 0.01)).toFixed(2) : null,
+      numerical: tableData.fmtOdds&& tableData.fmtOdds.length > 0 ? (accMul(accMul(tableData.fmtOdds[tableData.fmtOdds.length - 1], 100), 0.01)).toFixed(2) : null,
       transformData: tableData.fmtOdds
     }, {
-      key: tableData.mktTrend.secId ? tableData.mktTrend.secId : 2,
+      key: 2,
       name: '趋势强度',
       status: '较低',
-      numerical: tableData.mktTrend.length > 0 ? accMul(tableData.mktTrend[tableData.mktTrend.length - 1], 100) : null,
+      numerical: tableData.mktTrend && tableData.mktTrend.length > 0 ? accMul(tableData.mktTrend[tableData.mktTrend.length - 1], 100) : null,
       transformData: tableData.mktTrend
     }]
     

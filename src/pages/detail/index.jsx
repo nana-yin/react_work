@@ -3,7 +3,8 @@ import LeftBack from '../../components/Detail/Left'
 import AssetDetail from '../../components/Detail/AssetDetail'
 import MacroDetail from '../../components/Detail/MacroDetail'
 import {getAssetStrategy} from '../../../mock/styleCard'
-import {getAssetSmall, getMacroSingleList} from '../../../mock/detail'
+import {getAssetSmall} from '../../../mock/detail'
+import {getMacroSingleList} from '../../../mock/macroDetail'
 import RightSide from '../../components/Detail/RightSide'
 import './index.less'
 
@@ -15,7 +16,7 @@ class Detail extends PureComponent {
     assetTab: [] // 大类资产卡tab栏的名称数组
   }
   componentDidMount() {
-    // this.pageInit()
+    this.pageInit()
   }
   clickName = (key) => { // 点击小类资产的名称
     this.stateName = key
@@ -26,15 +27,15 @@ class Detail extends PureComponent {
     })
   }
   pageInit = () => { // 请求数据的初始化
-    const {id, type} = this.props.location.state
+    const {type} = this.props.location.state
     // 大类资产-》largeClassAsset  小类资产-》smallClassAsset  A股风格-》styleStrategy  A股行业-》industryStrategy
     // 宏观指标-》macro   中国宏观分类-》chinaMacro    全球宏观分类-》globalMacro
     if (type === 'smallClassAsset') {
-      this.getSmallData(id)
+      this.getSmallData()
     } else if (type.indexOf('Strategy') !== -1) {
-      this.getStrategyAsset(id)
+      this.getStrategyAsset()
     } else if (type === 'macro') {
-      this.macroSingleInit(id)
+      this.macroSingleInit()
     }
   }
   getSmallData() { // 获取小类资产数据
@@ -56,17 +57,13 @@ class Detail extends PureComponent {
     }
   }
   macroSingleInit() { // 获取宏观指标卡的数据
-    // this.fetchMacroData({
-    //   secId: id
-    // }).then(() => {
-      if (Object.keys(getMacroSingleList).length > 0) {
-        if (this.props.location.state.type === 'macro') {
-          this.setState({
-            pageTitle: getMacroSingleList.name
-          })
-        }
+    if (Object.keys(getMacroSingleList).length > 0) {
+      if (this.props.location.state.type === 'macro') {
+        this.setState({
+          pageTitle: getMacroSingleList.name
+        })
       }
-    // })
+    }
   }
   render() {
     const {pageTitle, rightShow} = this.state
@@ -79,7 +76,7 @@ class Detail extends PureComponent {
         </div>
         <div className="assetStrategyDetail-center">
           <div className="assetStrategyDetail-center__name">{ pageTitle }详情</div>
-            {/* <div className="assetStrategyDetail-center__tabs">
+            <div className="assetStrategyDetail-center__tabs">
               {
                 (type && type.indexOf('macro') !== -1)
                 ?
@@ -88,7 +85,7 @@ class Detail extends PureComponent {
                 :
                   <AssetDetail pageTitle={pageTitle} id={id} type={type} history={history}/>
               } 
-            </div> */}
+            </div>
         </div>
         <div className="assetStrategyDetail-right">
           {

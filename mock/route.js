@@ -28,7 +28,7 @@ const database = [
     route: '/asset',
   },
   {
-    id: '8',
+    id: '3',
     breadcrumbParentId: '1',
     name: 'Detail',
     zh: {
