@@ -1,0 +1,52 @@
+.macroDetail {
+  border: 1px solid transparent;
+  &-char {
+    width: 100%;
+    height: 400px;
+    margin-top: 36px;
+  }
+  .datePick {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 36px;
+    top: 370px;
+    background: url('../../../../public/images/datePick.png');
+    background-size: 24px auto;
+    .ant-picker {
+      padding: 0;
+      width: 24px;
+      border: 1px solid red;
+    }
+  }
+  &-notes {
+    margin: 15px 36px 36px 16px;
+    padding: 12px 16px 0 0;
+    background: #f0f1f4;
+    &_box {
+      .note {
+        padding: 0 0 12px 16px;
+        .noteBox {
+          width: 100%;
+          text-align: left;
+          margin-bottom: 2px;
+          .title {
+            display: inline-block;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+            line-height: 19px;
+          }
+          .text {
+            display: inline-block;
+            text-align: left;
+            font-size: 14px;
+            color: #666;
+            line-height: 19px;
+          }
+        }
+      }
+    }
+  }
+}

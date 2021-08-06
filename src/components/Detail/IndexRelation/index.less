@@ -1,0 +1,87 @@
+.assetStrategy-diagramChart {
+  width: 100%;
+  height: 100%;
+  &-relationG2 {
+    width: 100%;
+    padding-right: 20px;
+    #relationG2 {
+      min-width: 296px;
+      width: 100%;
+      height: 100%;
+      margin: 20px 0 0;
+      span {
+        display: inline-block;
+        background: #E8F1FE;
+        font-size: 14px;
+        line-height: 21px;
+        color: #1d76f1;
+      }
+    }
+    .annotation {
+      margin-bottom: 36px;
+      text-align: center;
+      .pos,.neg,.up,.down {
+        position: relative;
+        display: inline-block;
+        margin-right: 20px;
+        padding: 4px 10px 4px 33px;
+        background: #fbfbfb;
+        border-radius: 4px;
+        font-size: 16px;
+        color: #666;
+        &::before {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translate(0,-50%);
+          display: inline-block;
+          content: '';
+          width: 17px;
+          height: 17px;
+          margin-right: 6px;
+          background: url(../../../../public/images/relationAdd.png);
+          background-size: 17px auto;
+        }
+      }
+      .neg::before {
+        background: url(../../../../public/images/relationSub.png);
+        background-size: 17px auto;
+      }
+      .up::before {
+        background: url(../../../../public/images/winUp.png);
+        background-size: 17px auto;
+      }
+      .down::before {
+        background: url(../../../../public/images/winDown.png);
+        background-size: 17px auto;
+      }
+    }
+  }
+  &-relation {
+    padding-right: 20px;
+    #indicatorChart {
+      min-width: 305px;
+      width: 100%;
+      height: 100%;;
+      margin: 20px auto 0;
+    }
+  }
+  &-title {
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+  }
+  .explain {
+    margin-top: 16px;
+    padding: 12px 0 12px 20px;
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+    background: #f8f8f8;
+    &-title {
+      color: #333;
+    }
+  }
+}

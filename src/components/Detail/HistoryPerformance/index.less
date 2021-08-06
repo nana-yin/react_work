@@ -1,0 +1,66 @@
+.assetStrategyDetail-historyLine {
+  width: 100%;
+  height: 100%;
+  padding-top: 12px;
+  &__title {
+    margin: 12px 0 0 16px;
+    line-height: 21px;
+    font-size: 16px;
+    color: #333;
+  }
+  #historyLine {
+    position: relative;
+    width: 95%;
+    height: 400px;
+    margin-left: 16px;
+  }
+  .datePick {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 36px;
+    top: 370px;
+    background: url('../../../../public/images/datePick.png');
+    background-size: 24px auto;
+    .ant-picker {
+      padding: 0;
+      width: 24px;
+      border: 1px solid red;
+    }
+  }
+  &__tableBox {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+  &__tableTitle {
+    margin: 20px 0 16px 16px;
+    font-size: 16px;
+    color: #333;
+    line-height: 21px;
+  }
+  &__table {
+    margin: 0 44px 36px 16px;
+    .ant-table {
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+      .ant-table-bordered .ant-table-thead > tr > th {
+        background: #f5f7fa;
+        padding: 7px 0;
+        color: #999;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+      }
+      .ant-table-bordered .ant-table-tbody > tr > td {
+        &:first-child {
+          color: #999;
+          padding: 7px 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

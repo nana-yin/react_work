@@ -1,0 +1,109 @@
+.box {  // 关键指标
+  display: flex;
+  justify-content: space-between;
+  background-color: #F5F6FB;
+  .loss{
+    flex: 1;
+    background: #fff;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  .title {
+    padding: 19px 0 14px 20px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333;
+    border-bottom: 1px solid rgb(230,230,230,0.7);
+  }
+  #treeDom, #treeDomOdd{
+    margin: 0 auto;
+    width: 400px;
+    height: 300px;
+    border: 1px solid red;
+  }
+}
+// 宏观环境关联指标
+.macroIndex {
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  .title {
+    padding: 19px 0 14px 20px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333;
+    border-bottom: 1px solid rgb(230,230,230,0.7);
+  }
+  .content {
+    display: flex;
+    .list {
+      padding: 30px 20px 0;
+      width: 268px;
+      height: 100vh;
+      border-right: 1px solid rgba(230,230,230,0.7);
+      .listBox {
+        margin-bottom: 59px;
+        .listTitle {
+          margin-bottom: 14px;
+          font-size: 18px;
+          line-height: 18px;
+          color: #333;
+        }
+        .singleBox {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          .single {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 109px;
+            padding: 19px 15px 14px;
+            margin-right: 10px;
+            background: rgba(153,153,153,0.05);
+            border: 2px solid rgba(144,152,180,0.5);
+            border-radius: 4px;
+            &:last-of-type{
+              margin-right: 0;
+            }
+            &_title {
+              margin-bottom: 14px;
+              font-size: 16px;
+              line-height: 16px;
+              color: #666;
+            }
+            .valBox {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              flex-wrap: nowrap;
+              .value {
+                display: inline-block;
+                font-size: 24px;
+                line-height: 24px;
+                color: #333;
+                font-weight: 600;
+              }
+              .upImg,.downImg {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                background: url('../../../../public/images/macroUpIcon.png') no-repeat;
+                background-size: 12px auto;
+              }
+              .downImg {
+                background: url('../../../../public/images/macroDownIcon.png') no-repeat;
+                background-size: 12px auto;
+              }
+            }
+          }
+        }
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .chart {
+      flex: 1;
+    }
+  }
+}

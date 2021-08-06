@@ -1,0 +1,67 @@
+[
+  {
+    "fmtWinRate": 0.4204,
+    "fmtOdds": -0.46,
+    "assetId": "a_share"
+  },
+  {
+    "fmtWinRate": 0.5251,
+    "fmtOdds": -0.4046,
+    "assetId": "hk_stocks"
+  },
+  {
+    "fmtWinRate": 0.5271,
+    "fmtOdds": -0.2759,
+    "assetId": "interest_bond"
+  },
+  {
+    "fmtWinRate": 0.4368,
+    "fmtOdds": 0.3796,
+    "assetId": "convert_bond"
+  },
+  {
+    "fmtWinRate": 0.5396,
+    "fmtOdds": 0.0416,
+    "assetId": "credit_bond"
+  },
+  {
+    "fmtWinRate": 0.3236,
+    "fmtOdds": 1.2744,
+    "assetId": "high_yield_bond"
+  },
+  {
+    "fmtWinRate": 0.4334,
+    "fmtOdds": -0.4498,
+    "assetId": "precious_metal"
+  },
+  {
+    "fmtWinRate": 0.3,
+    "fmtOdds": -0.227,
+    "assetId": "cta"
+  },
+  {
+    "fmtWinRate": 0.6,
+    "fmtOdds": -0.5289,
+    "assetId": "market_neutral"
+  },
+  {
+    "fmtWinRate": 0.6,
+    "fmtOdds": 0.0006,
+    "strategyId": "s_0001"
+  },
+  {
+    "fmtWinRate": 0.45,
+    "fmtOdds": 0.0004,
+    "strategyId": "s_0002"
+  },
+  {
+    "fmtWinRate": 0.25,
+    "fmtOdds": -0.0166,
+    "strategyId": "s_0003"
+  },
+  {
+    "fmtWinRate": 0.75,
+    "fmtOdds": 1.1232,
+    "strategyId": "s_0004"
+  }
+]

@@ -1,0 +1,138 @@
+.ant-col {
+  padding: 0!important;
+}
+.assetStrategy {
+  overflow: auto;
+  width: 100%;
+  min-height: 100%;
+  background: #fff;
+  &:-webkit-scrollbar {
+    display: none;
+  }
+  &-box {
+    position: relative;
+    overflow: auto;
+    z-index: 1;
+    width: 1200px;
+    height: 100%;
+    margin: 20px auto 0;
+    &__tab {
+      position: fixed;
+      z-index: 10;
+      width: 180px;
+      background: #fff;
+    }
+    &__content {
+      position: relative;
+      z-index: 11;
+      width: 1018px;
+      min-width: 1000px;
+      height: 100%;
+      background: #fff;
+      margin-left: 180px;
+      padding-left: 30px;
+      border-left: 1px solid #f0f0f0;
+    }
+  }
+}
+.tabChildren {
+  cursor: pointer;
+}
+.tabChildren,.tabhasChild {
+  padding: 10px 0 10px 18px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #333;
+  img {
+    display: inline-block;
+    vertical-align: top;
+    width: 12px;
+    height: 12px;
+    margin: 4px 12px 0 0;
+  }
+}
+.tabActive {
+  background: #E8F1FE;
+  border-right: 3px solid #1d76f1;
+  color: #1d76f1!important;
+  transition: all 0.2s;
+}
+.tabSub {
+  cursor: pointer;
+  padding: 10px 0;
+  padding-left: 45px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #333;
+}
+.contentTitle, .macroTitle {
+  font-size: 20px;
+  color: #333;
+  line-height: 26px;
+  font-weight: 600;
+}
+.typeBox {
+  width: 100%;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  padding-top: 14px;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #F1F3F4;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #ccc;
+  }
+  .rightBox {
+    width: 100%;
+    &-content {
+      width: 100%;
+      .rightTitle {
+        font-size: 16px;
+        color: #333;
+        line-height: 21px;
+        padding: 16px 0;
+      }
+    }
+    &-imgBox {
+      margin: 0!important;
+      .classifyBox {
+        &-img {
+          cursor: pointer;
+          width: 300px;
+          height: 200px;
+          border: 1px solid #f0f0f0;
+          background: #fff;
+        }
+        &-text {
+          display: inline-block;
+          width: 300px;
+          margin: 8px auto 20px;
+          text-align: center;
+          span {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 19px;
+            color: #666;
+            &:hover {
+              color: #1d76f1;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.macroImg {
+  margin-top: 24px;
+}
+.macroTitle {
+  margin-top: 30px;
+}

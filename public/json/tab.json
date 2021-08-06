@@ -1,0 +1,302 @@
+{
+  "styleStrategy": [
+    {
+      "strategyId": "s_0001",
+      "strategyName": "大市值"
+    },
+    {
+      "strategyId": "s_0002",
+      "strategyName": "中小市值"
+    },
+    {
+      "strategyId": "s_0003",
+      "strategyName": "成长"
+    },
+    {
+      "strategyId": "s_0004",
+      "strategyName": "价值"
+    }
+  ],
+  "industryStrategy": [
+    {
+      "strategyId": "s_0005",
+      "strategyName": "石油石化"
+    },
+    {
+      "strategyId": "s_0006",
+      "strategyName": "煤炭"
+    },
+    {
+      "strategyId": "s_0007",
+      "strategyName": "有色金属"
+    },
+    {
+      "strategyId": "s_0008",
+      "strategyName": "电力及公用事业"
+    },
+    {
+      "strategyId": "s_0009",
+      "strategyName": "钢铁"
+    },
+    {
+      "strategyId": "s_0010",
+      "strategyName": "基础化工"
+    },
+    {
+      "strategyId": "s_0011",
+      "strategyName": "建筑"
+    },
+    {
+      "strategyId": "s_0012",
+      "strategyName": "建材"
+    },
+    {
+      "strategyId": "s_0013",
+      "strategyName": "轻工制造"
+    },
+    {
+      "strategyId": "s_0014",
+      "strategyName": "机械"
+    },
+    {
+      "strategyId": "s_0015",
+      "strategyName": "电力设备及新能源"
+    },
+    {
+      "strategyId": "s_0016",
+      "strategyName": "国防军工"
+    },
+    {
+      "strategyId": "s_0017",
+      "strategyName": "汽车"
+    },
+    {
+      "strategyId": "s_0018",
+      "strategyName": "商贸零售"
+    },
+    {
+      "strategyId": "s_0019",
+      "strategyName": "消费者服务"
+    },
+    {
+      "strategyId": "s_0020",
+      "strategyName": "家电"
+    },
+    {
+      "strategyId": "s_0021",
+      "strategyName": "纺织服装"
+    },
+    {
+      "strategyId": "s_0022",
+      "strategyName": "医药"
+    },
+    {
+      "strategyId": "s_0023",
+      "strategyName": "食品饮料"
+    },
+    {
+      "strategyId": "s_0024",
+      "strategyName": "农林牧渔"
+    },
+    {
+      "strategyId": "s_0025",
+      "strategyName": "银行"
+    },
+    {
+      "strategyId": "s_0026",
+      "strategyName": "非银行金融"
+    },
+    {
+      "strategyId": "s_0027",
+      "strategyName": "房地产"
+    },
+    {
+      "strategyId": "s_0028",
+      "strategyName": "交通运输"
+    },
+    {
+      "strategyId": "s_0029",
+      "strategyName": "电子"
+    },
+    {
+      "strategyId": "s_0030",
+      "strategyName": "通信"
+    },
+    {
+      "strategyId": "s_0031",
+      "strategyName": "计算机"
+    },
+    {
+      "strategyId": "s_0032",
+      "strategyName": "传媒"
+    }
+  ],
+  "largeClassAsset": [
+    {
+      "smallClassAsset": [
+        {
+          "assetId": "a_share",
+          "assetName": "A股"
+        },
+        {
+          "assetId": "hk_stocks",
+          "assetName": "港股"
+        }
+      ],
+      "assetId": "equity",
+      "assetName": "权益"
+    },
+    {
+      "smallClassAsset": [
+        {
+          "assetId": "interest_bond",
+          "assetName": "利率债"
+        },
+        {
+          "assetId": "convert_bond",
+          "assetName": "可转债"
+        },
+        {
+          "assetId": "credit_bond",
+          "assetName": "信用债"
+        },
+        {
+          "assetId": "high_yield_bond",
+          "assetName": "高收益信用债"
+        }
+      ],
+      "assetId": "fixed_income",
+      "assetName": "固收"
+    },
+    {
+      "smallClassAsset": [
+        {
+          "assetId": "precious_metal",
+          "assetName": "贵金属"
+        },
+        {
+          "assetId": "cta",
+          "assetName": "管理期货"
+        },
+        {
+          "assetId": "market_neutral",
+          "assetName": "市场中性"
+        }
+      ],
+      "assetId": "alternative",
+      "assetName": "另类"
+    }
+  ],
+  "chinaMacro": [
+    {
+      "secId": "att_00000369",
+      "secName": "中国-财政政策力度"
+    },
+    {
+      "secId": "att_00000366",
+      "secName": "中国-产能"
+    },
+    {
+      "secId": "att_00000981",
+      "secName": "中国-房地产"
+    },
+    {
+      "secId": "att_00000923",
+      "secName": "中国-航运运价（干散货）"
+    },
+    {
+      "secId": "att_00000927",
+      "secName": "中国-航运运价（集装箱）"
+    },
+    {
+      "secId": "att_00000336",
+      "secName": "中国-货币政策倾向"
+    },
+    {
+      "secId": "att_00000363",
+      "secName": "中国-就业"
+    },
+    {
+      "secId": "att_00000055",
+      "secName": "中国-库存动力指数"
+    },
+    {
+      "secId": "att_00001068",
+      "secName": "中国-流动性"
+    },
+    {
+      "secId": "att_00000980",
+      "secName": "中国-企业利润"
+    },
+    {
+      "secId": "att_00000979",
+      "secName": "中国-市场风险偏好"
+    },
+    {
+      "secId": "att_00000042",
+      "secName": "中国-物价"
+    },
+    {
+      "secId": "att_00000045",
+      "secName": "中国-信用环境"
+    },
+    {
+      "secId": "att_00000047",
+      "secName": "中国-信用数量"
+    },
+    {
+      "secId": "att_00000049",
+      "secName": "中国-资金利率"
+    },
+    {
+      "secId": "att_00000039",
+      "secName": "中国-总需求"
+    },
+    {
+      "secId": "att_00001049",
+      "secName": "中国-项目投资"
+    },
+    {
+      "secId": "att_00000052",
+      "secName": "新兴市场外部金融条件"
+    }
+  ],
+  "globalMacro": [
+    {
+      "secId": "att_00000372",
+      "secName": "美国-财政政策力度"
+    },
+    {
+      "secId": "att_00000985",
+      "secName": "美国-货币政策倾向"
+    },
+    {
+      "secId": "att_00001069",
+      "secName": "美国-流动性"
+    },
+    {
+      "secId": "att_00000984",
+      "secName": "美国-市场风险偏好"
+    },
+    {
+      "secId": "att_00000064",
+      "secName": "美国-物价"
+    },
+    {
+      "secId": "att_00000061",
+      "secName": "美国-消费就业周期"
+    },
+    {
+      "secId": "att_00000067",
+      "secName": "美国-信用环境"
+    },
+    {
+      "secId": "att_00000058",
+      "secName": "美国-制造业周期"
+    },
+    {
+      "secId": "att_00000070",
+      "secName": "美国-资金利率"
+    }
+  ]
+}

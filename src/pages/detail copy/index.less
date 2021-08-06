@@ -1,0 +1,55 @@
+.assetStrategyDetail {
+  position: relative;
+  width: 1320px;
+  margin: 0 auto;
+  &-left {
+    float: left;
+    margin-top: 20px
+  }
+  &-center {
+    float: left;
+    overflow-x: hidden;
+    min-width: 830px;
+    width: 43.2%;
+    margin: 20px 0 30px 120px;
+    background: #fff;
+    @media screen and (max-width: 1334px) {
+      min-width: 780px;
+    }
+    @media screen and (max-width: 1280px) {
+      min-width: 750px;
+    }
+    @media screen and (max-width: 1240px) {
+      min-width: 720px;
+    }
+    &__name {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 24px;
+      color: #333;
+    }
+    &__tabs {
+      padding-left: 20px;
+      .ant-tabs {
+        margin-top: 22px;
+      }
+      .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-nav .ant-tabs-tab {
+        color: #333;
+        font-size: 16px;
+        line-height: 21px;
+      }
+      .ant-tabs-ink-bar {
+        background-color: #1d76f1
+      }
+    }
+  }
+  &-right {
+    float: left;
+    margin-top: 20px;
+  }
+  .clear {
+    clear: both;
+  }
+}
