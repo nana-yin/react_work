@@ -53,6 +53,19 @@ const database = [
     icon: 'shopping-cart',
     route: '/assetCenter',
   },
+  
+  {
+    id: '5',
+    breadcrumbParentId: '1',
+    name: 'Charts',
+    zh: {
+      name: 'Charts'
+    },
+    'pt-br': {
+      name: 'Graficos'
+    },
+    icon: 'shopping-cart',
+  },
   {
     id: '51',
     breadcrumbParentId: '5',

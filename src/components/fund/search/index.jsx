@@ -3,10 +3,11 @@ import React, { Component } from 'react'
 import { Input, Spin  } from 'antd'
 // 引入icon
 import { SearchOutlined } from '@ant-design/icons';
+// 引入路由跳转
+import {withRouter} from 'react-router-dom'
 // 引入当前页面样式
 import './index.less'
-
-export default class Search extends Component {
+class Search extends Component {
   state = {
     list: [], // 搜索的数据列表
     searchval: '', // 搜索的关键字
@@ -91,6 +92,17 @@ export default class Search extends Component {
       })
     }
   }
+  /**
+   * 点击基金，进入基金详情
+  */
+  handleClick = (id) => {
+    this.props.history.push({
+      pathname: '/fund',
+      state: {
+        id
+      }
+    })
+  }
   render() {
     const {list, isShowContent,loading} = this.state
     return (
@@ -102,7 +114,7 @@ export default class Search extends Component {
               (list.length > 0) && 
               list.map(item => {
                 return (
-                  <div className="fund" key={item.id}>
+                  <div className="fund" key={item.id} onClick={() => this.handleClick(item.id)}>
                     <span className="fundName">{item.name}</span>
                     <span className="fundId">{item.id}</span>
                   </div>
@@ -118,3 +130,6 @@ export default class Search extends Component {
     )
   }
 }
+
+
+export default withRouter(Search)
