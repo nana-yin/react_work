@@ -32,7 +32,7 @@ const database = [
     breadcrumbParentId: '1',
     name: 'Detail',
     zh: {
-      name: '卡片详情'
+      name: '卡片详情(不可点击)'
     },
     'pt-br': {
       name: 'Detail'
@@ -41,16 +41,17 @@ const database = [
     route: '/detail',
   },
   {
-    id: '5',
+    id: '4',
     breadcrumbParentId: '1',
-    name: 'Charts',
+    name: 'assetCenter',
     zh: {
-      name: 'Charts'
+      name: '资产中心'
     },
     'pt-br': {
-      name: 'Graficos'
+      name: 'assetCenter'
     },
     icon: 'shopping-cart',
+    route: '/assetCenter',
   },
   {
     id: '51',
@@ -79,7 +80,19 @@ const database = [
     },
     icon: 'shopping-cart',
     route: '/assetFourIndex',
-  }
+  },
+  {
+    id: '6',
+    breadcrumbParentId: '1',
+    name: 'fund',
+    zh: {
+      name: '基金详情'
+    },
+    'pt-br': {
+      name: 'fund'
+    },
+    icon: 'shopping-cart',
+  },
   
 ]
 

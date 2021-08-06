@@ -1,0 +1,64 @@
+.assetCenter-search {
+  position: relative;
+  display: inline-block;
+  width: 500px;
+  .ant-input-affix-wrapper {
+    padding: 10px 16px;
+    border-color: #d9d9d9;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 22px;
+    color: #999;
+    .ant-input-prefix {
+      font-size: 16px;
+      color: #9b7235;
+      margin-right: 8px;
+    }
+  }
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    border-color: #d9d9d9;
+  }
+  .ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused {
+    box-shadow: none;
+  }
+  &__content {
+    position: absolute;
+    box-sizing: border-box;
+    background: #fff;
+    margin-top: 2px;
+    width: 500px;
+    max-height: 362px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #666;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: #ccc;
+    }
+    .fund {
+      padding: 8px 20px;
+      text-align: left;
+      &:hover {
+        cursor: pointer;
+        background: #f5f7fa;
+        border-radius: 4px;
+      }
+      .fundName,.fundId{
+        display: inline-block;
+      }
+      .fundName {
+        margin-right: 6px;
+      }
+    }
+    .noData {
+      padding: 8px 20px;
+      color: #999;
+    }
+  }
+}
