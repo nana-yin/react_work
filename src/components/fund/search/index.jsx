@@ -10,6 +10,7 @@ import './index.less'
 class Search extends Component {
   state = {
     list: [], // 搜索的数据列表
+    operaList: [], // 处理之后的数据
     searchval: '', // 搜索的关键字
     isShowContent: false, // 搜索的内容是否需要展示
     loading: false, // 列表是否处于加载中
@@ -43,14 +44,16 @@ class Search extends Component {
       for (let i = list.length; i < list.length + 10;i++) { // 假数据
         let obj = {
           name: `第${i}个基金`,
-          id: i
+          id: 'id'+i
         }
         resList.push(obj)
       }
       this.setState({
-        list: list.concat(resList),
+        list: list.concat(resList)
       },() => {
+        const operaList = this.highLightText('id')
         this.setState({
+          operaList,
           isShowContent: true,
           loading: false
         })
@@ -58,7 +61,8 @@ class Search extends Component {
     })
   }
   /**
-   * 输入框中按下回车，进行数据的搜索，一次10个
+   * 输入框中按下回车或者输入框中数据进行更改时，进行数据的搜索，一次10个
+   * @param e 当前输入的事件对象
   */
   handleSearch = (e) => {
     // 调用接口，为list数据赋值
@@ -66,21 +70,25 @@ class Search extends Component {
     const searchval = e.target.value
     if (searchval.trim()) {
       this.setState({
+        list: [],
+        operaList: [],
         loading: true,
         searchval
       },() => {
         const resList = []
-        for (let i = 0; i < 11;i++) { // 假数据
+        for (let i = 0; i < 10;i++) { // 假数据
           let obj = {
             name: `第${i}个基金`,
-            id: i
+            id: 'id'+i
           }
           resList.push(obj)
         }
         this.setState({
           list: resList,
         },() => {
+          const operaList = this.highLightText('id')
           this.setState({
+            operaList,
             isShowContent: true,
             loading: false
           })
@@ -103,8 +111,45 @@ class Search extends Component {
       }
     })
   }
+  /**
+   * 搜索出的列表中文字的颜色高亮
+   * @param prope 需要高亮的属性
+  */
+  highLightText = (prope) => {
+    // searchval是搜索的关键字，list是原始的数据
+    const {searchval,list} = this.state
+    // 最终输出的数据
+    let matchVal = [];
+    list.forEach((item, index) => {
+      let isMatch = true, // 是否匹配
+          rawVal = item[prope] // 进行匹配的原始字符串
+          matchVal[index] = [] // 初始化数据
+      while (isMatch) {
+        // 对关键字的位置进行匹配
+        let pos = rawVal.indexOf(searchval)
+        if (pos === -1) { // 没有匹配到关键字
+          isMatch = false
+          matchVal[index].push({ [prope]: rawVal.substring(0, rawVal.length),name: item.name })
+        } else {
+          // 当前匹配的位置+关键字的长度
+          let matchEnd = pos + searchval.length
+          // 没有匹配到的关键字
+          matchVal[index].push({ [prope]: rawVal.substring(0, pos),name: item.name })
+          // 匹配到的关键字
+          matchVal[index].push({ [prope]: rawVal.substring(pos, matchEnd), matched: true,name: item.name })
+          // 将匹配到的文字进行删除，将原始数据进行重新筛选
+          rawVal = rawVal.substring(matchEnd, rawVal.length)
+          // 当匹配的长度到了末尾，将不再进行匹配
+          if (!rawVal && rawVal.length < 1) {
+            isMatch = false
+          }
+        }
+			}
+		})
+    return matchVal
+  }
   render() {
-    const {list, isShowContent,loading} = this.state
+    const {list, operaList, isShowContent,loading} = this.state
     return (
       <div className="assetCenter-search">
         <Input placeholder="请输入产品名称/代码" prefix={<SearchOutlined />} onChange={e => this.handleSearch(e)} onPressEnter={e => this.handleSearch(e)}/>
@@ -112,11 +157,19 @@ class Search extends Component {
           <Spin spinning={loading}>
             {
               (list.length > 0) && 
-              list.map(item => {
-                return (
-                  <div className="fund" key={item.id} onClick={() => this.handleClick(item.id)}>
-                    <span className="fundName">{item.name}</span>
-                    <span className="fundId">{item.id}</span>
+              operaList.map((item,index) => {
+                return(
+                  <div className="fund" key={list[index].id} onClick={() => this.handleClick(list[index].id)}>
+                    <span className="fundName">{list[index].name}</span>
+                    {
+                      item.map((subItem,subIndex) => {
+                        return (
+                          <span key={index + subIndex} className="fundId" style={{color: subItem.matched ? '#9b7235' : '#666'}}>
+                            {subItem.id}
+                          </span>
+                        )
+                      })
+                    }
                   </div>
                 )
               })

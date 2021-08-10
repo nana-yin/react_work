@@ -105,6 +105,7 @@ const database = [
       name: 'fund'
     },
     icon: 'shopping-cart',
+    route: '/fund',
   },
   
 ]

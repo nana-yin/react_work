@@ -1,0 +1,85 @@
+.historicalBox {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  font-weight: 600;
+  .historicalChart {
+    width: 70%;
+    height: 393px;
+  }
+  &-odd {
+    flex: 1;
+    padding: 0 0 20px 20px;
+    margin: 20px 0 0 20px;
+    border-left: 1px dashed #ededed;
+    &__posEarn {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fafafa;
+      font-weight: 400;
+      font-size: 0;
+      line-height: 0;
+      .name {
+        margin-bottom: 6px;
+        font-size: 16px;
+        line-height: 22px;
+        color: #333;
+        .anticon svg {
+          margin-left: 8px;
+          cursor: pointer;
+          font-size: 16px;
+          color: #a07a40;
+        }
+        .ant-tooltip-inner {
+          border-radius: 4px;
+          border: 1px solid #ebeef5;
+          background-color: #fff;
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.05);
+          padding: 12px;
+          color: #333;
+          font-size: 14px;
+          line-height: 20px;
+        }
+        .ant-tooltip-arrow {
+          display: none;
+        }
+      }
+      .explain {
+        margin-bottom: 40px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #999;
+      }
+      .ant-progress {
+        margin-bottom: 6px;
+        line-height: 0;
+      }
+      .ant-progress-inner {
+        background: #eaeaea;
+        border-radius: 0;
+      }
+      .ant-progress-success-bg, .ant-progress-bg{
+        background-color: #dcae73;
+      }
+      .progress-data {
+        display: flex;
+        justify-content: space-between;
+        .data,.superData{
+          font-size: 14px;
+          line-height: 20px;
+          color: #dcae73;
+        }
+        .superData {
+          color: #55adf6;
+        }
+      }
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}
