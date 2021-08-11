@@ -1,7 +1,7 @@
 // 引入行业的颜色
 import { FUND_TAG_COLOR } from '@/utils/fund.js'
 // accMul给数据乘以100
-import { accMul } from '@/utils/fund.js'
+import { isEmpty,accMul } from '@/utils/fund.js'
 
 // 持仓分析--行业分布（柱状图）
 export const drawBar = (list) => {
@@ -15,33 +15,36 @@ export const drawBar = (list) => {
   })
   const option = {
     grid: {
-      top: 10,
-      bottom: 0,
-      left: 22,
+      top: 20,
+      bottom: 30,
+      left: 20,
       right: 20,
       containLabel: true
     },
     tooltip: {
       trigger: 'axis',
-      padding: [16, 20],
-      backgroundColor: 'rgba(0,0,0,0.6)',
+      padding: [16, 30, 16, 20],
+      backgroundColor: '#fff',
       borderWidth: 0,
       textStyle: {
         fontSize: 14,
-        color: '#fff',
+        color: '#333',
         lineHeight: 14
       },
       axisPointer: {
         type: 'shadow',
         shadowStyle: {
-          color: 'rgba(0,0,0,0.1)'
+          color: 'rgba(0,0,0,0.05)'
         }
       },
+      extraCssText: 'box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.06);',
       formatter: function(params) {
+        const val = !isEmpty(params[0].value) ? (params[0].value).toFixed(2) : '--'
         var htmlStr = '<div>'
-
-        htmlStr += '<div style="margin-bottom: 6px;font-weight: 600;">' + params[0].name + '</div>' +
-          '<span>行业占比：' + (params[0].value).toFixed(2) + '%</span><br/>'
+        htmlStr += `<span style="display: inline-block;margin-right: 6px;width: 10px;height: 10px;border-radius: 2px;background: ${params[0].color}"></span>
+                      <span>${params[0].name}：</span>
+                      <span>${ val !== '--' ? val + '%' : '--'}</span>
+                    `
         htmlStr += '</div>'
         return htmlStr
       }

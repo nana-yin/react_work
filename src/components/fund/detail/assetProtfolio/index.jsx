@@ -12,7 +12,7 @@ import * as echarts from 'echarts'
 // 引入当前页面的样式
 import './index.less'
 
-export default class index extends Component {
+export default class AssetProtfolio extends Component {
   state = {
     loading: true, // 资产分布模块是否显示加载中
     hasData: true, // 资产分布模块是否有数据

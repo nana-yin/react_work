@@ -44,34 +44,30 @@ export const drawTreeMap = (val) => {
     }
     seriseData.push(seriseObj)
   })
-
   const option = {
     tooltip: {
       show: true,
-      padding: [16, 20],
-      backgroundColor: 'rgba(0,0,0,0.6)',
+      padding: [16, 30, 16, 20],
+      backgroundColor: '#fff',
       borderWidth: 0,
       textStyle: {
         fontSize: 14,
-        color: '#fff',
+        color: '#333',
         lineHeight: 14
       },
+      extraCssText: 'box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.06);',
       formatter: function(params) {
         const configData = params.data.configData
         var htmlStr = '<div>'
         // 涨跌幅
-        let val = (accMul(Math.round(accMul(configData.pctChange, 100)), 0.01)).toFixed(2)
-        val = configData.pctChange < 0 ? `${val}%` : `+${val}%`
-        // 昨日收盘价
-        const quotVal = !isEmpty(configData.close) ? configData.close.toFixed(2) : '--'
+        let val = !isEmpty(configData.pctChange) ? (accMul(Math.round(accMul(configData.pctChange, 100)), 0.01)).toFixed(2) : '--'
+        val = val !== '--' ? parseFloat(val) < 0 ? `${val}%` : `+${val}%` : '--'
         // 占净值比例
-        const netVal = (accMul(Math.round(accMul(configData.mktToNav, 100)), 0.01)).toFixed(2)
-
-        // netVal = !isEmpty(configData.mktToNav) ? `${configData.mktToNav}%` : '--'
-        htmlStr += '<div style="font-weight: 600;margin-bottom: 6px;">' + configData.secName + `（${configData.stockCode}）` + '</div>' +
-          '<div style="font-weight: 400;margin-bottom: 6px;">涨跌幅：' + `<span style="color: ${configData.pctChange < 0 ? '#0ba194' : '#f24724'}">` + val +
-          '</span></div><div style="font-weight: 400;margin-bottom: 6px;">昨日收盘价：' + quotVal +
-          '</div><div style="font-weight: 400;">占净值比例：' + netVal + '%</div>'
+        const netVal = !isEmpty(configData.mktToNav) ? (accMul(Math.round(accMul(configData.mktToNav, 100)), 0.01)).toFixed(2) + '%' : '--'
+        htmlStr += '<div style="font-weight: 600;margin-bottom: 6px;">' + configData.secName + `（${configData.stockCode}）</div>` + 
+                  '<div style="font-weight: 400;margin-bottom: 6px;">涨跌幅：' + 
+                  `<span style="color: ${(val !== '--') && parseFloat(val) < 0 ? '#0ba194' : '#f24724'}">` + val +
+                  '</span></div><div style="font-weight: 400;">占净值比例：' + netVal + '</div>'
         htmlStr += '</div>'
         return htmlStr
       }

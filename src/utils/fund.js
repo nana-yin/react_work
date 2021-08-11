@@ -78,56 +78,6 @@ export const FUND_TYPE = {
     'A0401': '货币市场型基金'
   }
 }
-
-//基金抱团系数状态处理
-// export const COE_STATUS = {
-//   '较低': '#477046',
-//   '中低': '#088f95',
-//   '中等': '#666666',
-//   '中高': '#ce3e1f',
-//   '较高': '#ac1529'
-// }
-
-// /**
-//  * 基金的抱团系数状态处理
-//  * @param data 抱团系数的数值
-// */
-// export const coeOpera = (data) => {
-//   const splitText = [0, 0.2, 0.4, 0.6, 0.8, 1]
-//   let status = '--'
-//   for (let i = 0; i < splitText.length; i++) {
-//     if (data === splitText[i]) {
-//       status = '较低'
-//       break
-//     }
-//     if (data > splitText[i] && data <= splitText[i + 1]) {
-//       status = Object.keys(COE_STATUS)[i]
-//       break
-//     }
-//     if (data > splitText[splitText.length - 1]) {
-//       status = '较高'
-//       break
-//     }
-//   }
-//   return status
-// }
-
-/**
- * 比较基准的固定名称
- * 被动指数型、增强指数型、被动指数型债基、增强指数型债基 4种基金类型时 的 比较基准的名称
- * A0102', 'A0103', 'A0303', 'A0304'
- * 如果不是这四种类型，需要前端自己判断
-*/
-export const investTypeName = {
-  'A0101': '90%中证800+10%无风险利率',
-  'A0201': '70%中证800+30%中债-新综合财富（总值）指数',
-  'A0202': '50%中证800+50%中债-新综合财富（总值）指数',
-  'A0203': '30%中证800+70%中债-新综合财富（总值）指数',
-  'A0302': '10%中证800+90%中债-新综合财富（总值）指数',
-  'A0301': '中债-新综合财富（总值）指数',
-  'A0401': '中债-货币市场基金可投资债券财富（总值）指数'
-}
-
 /**
  * 比较基准的名称处理
  * @param investType 当前的基金的类型
@@ -303,4 +253,35 @@ export function accMul (arg1, arg2 = 100) {
   } catch (e) {
   }
   return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m)
+}
+
+
+// 基金经理的颜色
+export const MANAGER_COLOR = [
+  '#fde2e2',
+  '#bdc1cf',
+  '#9edfc8',
+  '#e2c5a7',
+  '#c8d7ff',
+  '#9fdfc7',
+  '#c6ece6',
+  '#afdde4',
+  '#88c5d7',
+  '#c8afe4',
+  '#e9bee3',
+  '#ece4c6',
+  '#e2c5a7',
+  '#b4df8f',
+  '#9cbede',
+  '#e4afb6',
+  '#dfab9f'
+]
+
+/**
+ * 十六进制颜色转换为rgba
+ * @param hex 十六进制颜色
+ * @param opacity 颜色的不透明度
+*/
+export const bgColor = (hex, opacity) => {
+  return 'rgba(' + parseInt('0x' + hex.slice(1, 3)) + ',' + parseInt('0x' + hex.slice(3, 5)) + ',' + parseInt('0x' + hex.slice(5, 7)) + ',' + opacity + ')'
 }

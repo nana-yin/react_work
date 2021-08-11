@@ -15,12 +15,12 @@ import AssetProtfolio from '@/components/fund/detail/assetProtfolio'
 import IndustyConfig from '@/components/fund/detail/industyConfig'
 // 重仓股票
 import HeavyStock from '@/components/fund/detail/heavyStock'
+// 引入基金经理组件
+import FundManagerCom from '@/components/fund/detail/fundManager'
 // 缺省页
 // import Empty from '@/components/empty'
 // 引入投资风格组件
 // import InvestmentStyle from '@/components/fund/detail/investmentStyle'
-// // 引入基金经理组件
-// import FundManager from '@/components/fund/detail/fundManager'
 // // 引入规模分析组件
 // import ScaleAnalysis from '@/components/fund/detail/scaleAnalysis'
 // // 货币型基金的历史收益
@@ -41,7 +41,7 @@ class Fund extends PureComponent {
     detail: {}, // 基金卡详情数据
     tagList: [], // 标签列表
     tabs: TABS['普通股票型'],
-    activeTab: '2', // 当前活跃的基金的表现形式tab中的key
+    activeTab: '3', // 当前活跃的基金的表现形式tab中的key
     activeScore: 0, // 当前活跃的业绩评分的日期
     movementsTime: MOVEMENTS_TIME_CARD, // 业绩表现中的时间选择tab
     activeMonth: 1, // 业绩表现中活跃的tab
@@ -390,11 +390,8 @@ class Fund extends PureComponent {
                 </div>
               }
               {
-                activeTab ==='3' &&
-                <div className="fundManage">
-                  基金经理
-                  {/* <FundManager v-if="detail.secName" :fund-name="detail.secName" :invest-type="rawInvestType" /> */}
-                </div>
+                activeTab ==='3' && detail.secName &&
+                <FundManagerCom fundName={detail.secName} investType={rawInvestType} />
               } {
                 activeTab ==='4' &&
                 <div className="scaleAnalysis">

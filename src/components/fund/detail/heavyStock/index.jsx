@@ -43,7 +43,10 @@ export default class HeavyStock extends Component {
     const {loading,hasData} = this.state
     return (
       <div className="heavyStock">
-        <div className="heavyStock-title">重仓股票</div>
+        <div className="heavyStock-top">
+          <div className="heavyStock-top__title">重仓股票</div>
+          <div className="heavyStock-top__date">数据日期：2021年7月6日</div>
+        </div>
         <Spin spinning={loading} tip="Loading...">
           {
             hasData &&
