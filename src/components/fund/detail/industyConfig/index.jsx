@@ -29,6 +29,9 @@ export default class IndustyConfig extends Component {
         const myChart = echarts.init(barDom)
         myChart.clear()
         myChart.setOption(drawBar(fundDistribute.industryList))
+        window.addEventListener('resize', () => {
+          myChart.resize()
+        })
         myChart.getZr().on('mousemove', _ => {
           myChart.getZr().setCursorStyle('default')
         })

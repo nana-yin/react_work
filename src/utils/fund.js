@@ -18,40 +18,41 @@ export const TABS = {
   }, {
     key: '6',
     name: '产品报告'
+  }],
+  '货币型基金': [{
+    key: '1',
+    name: '业绩表现'
+  }, {
+    key: '2',
+    name: '产品报告'
   }]
 }
 
 // 基金详情--业绩表现
 export const MOVEMENTS_TIME_CARD = [
   {
-    key: 1,
-    tab: '近一月',
-    field: 1
+    key: '1',
+    name: '近一月'
   },
   {
-    key: 3,
-    tab: '近三月',
-    field: 3
+    key: '3',
+    name: '近三月'
   },
   {
-    key: 0,
-    tab: '今年以来',
-    field: 0
+    key: '0',
+    name: '今年以来'
   },
   {
-    key: 12,
-    tab: '近一年',
-    field: 12
+    key: '12',
+    name: '近一年'
   },
   {
-    key: 36,
-    tab: '近三年',
-    field: 36
+    key: '36',
+    name: '近三年'
   },
   {
-    key: 1220,
-    tab: '成立以来',
-    field: 1220
+    key: '1220',
+    name: '成立以来'
   }
 ]
 

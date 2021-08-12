@@ -27,6 +27,9 @@ export default class HeavyStock extends Component {
         const myTreeMap = echarts.init(treeMapDom)
         myTreeMap.clear()
         myTreeMap.setOption(drawTreeMap(fundTop))
+        window.addEventListener('resize', () => {
+          myTreeMap.resize()
+        })
         myTreeMap.getZr().on('mousemove', _ => {
           myTreeMap.getZr().setCursorStyle('default')
         })

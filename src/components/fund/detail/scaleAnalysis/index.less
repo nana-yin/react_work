@@ -1,0 +1,58 @@
+.scaleAnalysis-component {
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #ededed;
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 25px;
+      color: #333;
+    }
+    .date {
+      font-size: 14px;
+      line-height: 14px;
+      color: #666;
+    }
+  }
+  .fundSize {
+    &-chart {
+      height: 408px;
+    }
+  }
+  .structure {
+    border-top: 12px solid #F5F6FB;
+    &-chart {
+      display: flex;
+      &__left {
+        flex: 2;
+        position: relative;
+        .structurePie {
+          height: 345px;
+        }
+        .pieData {
+          position: absolute;
+          right: 32%;
+          bottom: 11.5%;
+          div {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #666;
+            &:last-of-type {
+              margin: 0;
+            }
+          }
+        }
+      }
+      .structureBar {
+        flex: 5;
+        height: 345px;
+        margin-top: 20px;
+        border-left: 1px dashed #ededed;
+      }
+    }
+  }
+}

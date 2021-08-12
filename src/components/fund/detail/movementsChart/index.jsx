@@ -7,8 +7,8 @@ import {columns,drawLineChart} from './chart.config'
 import {fundTend} from '../../../../../mock/fund'
 // 引入echarts
 import * as echarts from 'echarts'
-// isEmpty对数据为空进行处理,accMul给数据乘以100
-import { isEmpty, accMul } from '@/utils/fund.js'
+// 业绩表现的日期tab,isEmpty对数据为空进行处理,accMul给数据乘以100
+import { MOVEMENTS_TIME_CARD, isEmpty, accMul } from '@/utils/fund.js'
 // 引入当前页面的样式
 import './index.less'
 
@@ -18,25 +18,7 @@ export default class MovementsChart extends Component {
     hasData: true, // 当前模块是否有数据
     columns: columns, // 表格的初始化
     tableData: [], // 表格数据
-    scoreTab: [{
-      key: '1',
-      name: '近一月'
-    }, {
-      key: '3',
-      name: '近三月'
-    }, {
-      key: '0',
-      name: '今年以来'
-    }, {
-      key: '12',
-      name: '近一年'
-    }, {
-      key: '36',
-      name: '近三年'
-    }, {
-      key: '1220',
-      name: '成立以来'
-    }], // 业绩表现的时间周期
+    scoreTab: MOVEMENTS_TIME_CARD, // 业绩表现的时间周期
     activeTab: '1'
   }
   componentDidMount() {
@@ -95,6 +77,9 @@ export default class MovementsChart extends Component {
             seriesData
           )
         )
+        window.addEventListener('resize', () => {
+          myChart.resize()
+        })
         myChart.getZr().on('mousemove', _ => {
           myChart.getZr().setCursorStyle('default')
         })

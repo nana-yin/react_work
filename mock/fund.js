@@ -8045,3 +8045,284 @@ export const fundManager = {
   ],
   "benchmarkName": ""
 }
+
+// 产品规模的数据
+export const resAnalise = [
+  {
+    "tradeDate": "2021-06-30",
+    "assetTotal": 3044154880
+  },
+  {
+    "tradeDate": "2021-03-31",
+    "assetTotal": 359878784
+  },
+  {
+    "tradeDate": "2020-12-31",
+    "assetTotal": 529825472
+  },
+  {
+    "tradeDate": "2020-09-30",
+    "assetTotal": 31849700
+  },
+  {
+    "tradeDate": "2020-06-30",
+    "assetTotal": 13578948
+  },
+  {
+    "tradeDate": "2020-03-31",
+    "assetTotal": 16327993
+  }
+]
+
+// 持有人结构的数据
+export const holderRes = {
+  "avgHoldShares": 8232.0400390625,
+  "fundId": 1013648,
+  "indiHoldRatio": 99.3499984741211,
+  "indiHoldShares": 289585792,
+  "instHoldRatio": 0.6499999761581421,
+  "instHoldShares": 1886135.5,
+  "tradeDate": "2020-12-31",
+  "undifinedHoldRatio": -999,
+  "undifinedHoldShares": -999,
+  "totalShares": 291471927.5,
+  "history": [
+    {
+      "avgHoldShares": 63489.83984375,
+      "fundId": 1013648,
+      "indiHoldRatio": 100,
+      "indiHoldShares": 107869232,
+      "instHoldRatio": 0,
+      "instHoldShares": 0,
+      "tradeDate": "2018-06-30",
+      "undifinedHoldRatio": -999,
+      "undifinedHoldShares": -999
+    },
+    {
+      "avgHoldShares": 49522.76171875,
+      "fundId": 1013648,
+      "indiHoldRatio": 100,
+      "indiHoldShares": 90676176,
+      "instHoldRatio": 0,
+      "instHoldShares": 0,
+      "tradeDate": "2018-12-31",
+      "undifinedHoldRatio": -999,
+      "undifinedHoldShares": -999
+    },
+    {
+      "avgHoldShares": 37197.51171875,
+      "fundId": 1013648,
+      "indiHoldRatio": 100,
+      "indiHoldShares": 55349904,
+      "instHoldRatio": 0,
+      "instHoldShares": 0,
+      "tradeDate": "2019-06-30",
+      "undifinedHoldRatio": -999,
+      "undifinedHoldShares": -999
+    },
+    {
+      "avgHoldShares": 16854.609375,
+      "fundId": 1013648,
+      "indiHoldRatio": 100,
+      "indiHoldShares": 23158238,
+      "instHoldRatio": 0,
+      "instHoldShares": 0,
+      "tradeDate": "2019-12-31",
+      "undifinedHoldRatio": -999,
+      "undifinedHoldShares": -999
+    },
+    {
+      "avgHoldShares": 7328.93017578125,
+      "fundId": 1013648,
+      "indiHoldRatio": 100,
+      "indiHoldShares": 13316675,
+      "instHoldRatio": 0,
+      "instHoldShares": 0,
+      "tradeDate": "2020-06-30",
+      "undifinedHoldRatio": -999,
+      "undifinedHoldShares": -999
+    },
+    {
+      "avgHoldShares": 8232.0400390625,
+      "fundId": 1013648,
+      "indiHoldRatio": 99.3499984741211,
+      "indiHoldShares": 289585792,
+      "instHoldRatio": 0.6499999761581421,
+      "instHoldShares": 1886135.5,
+      "tradeDate": "2020-12-31",
+      "undifinedHoldRatio": -999,
+      "undifinedHoldShares": -999
+    }
+  ]
+}
+
+// 七日年化的数据
+export const annualList = {
+  "detailList": [
+    {
+      "tradeDate": "2021-07-12",
+      "yearlyRot": 2.259999990463257
+    },
+    {
+      "tradeDate": "2021-07-13",
+      "yearlyRot": 2.2279999256134033
+    },
+    {
+      "tradeDate": "2021-07-14",
+      "yearlyRot": 2.2300000190734863
+    },
+    {
+      "tradeDate": "2021-07-15",
+      "yearlyRot": 2.2330000400543213
+    },
+    {
+      "tradeDate": "2021-07-16",
+      "yearlyRot": 2.2060000896453857
+    },
+    {
+      "tradeDate": "2021-07-17",
+      "yearlyRot": 2.193000078201294
+    },
+    {
+      "tradeDate": "2021-07-19",
+      "yearlyRot": 2.180000066757202
+    },
+    {
+      "tradeDate": "2021-07-20",
+      "yearlyRot": 2.4670000076293945
+    },
+    {
+      "tradeDate": "2021-07-21",
+      "yearlyRot": 2.4560000896453857
+    },
+    {
+      "tradeDate": "2021-07-22",
+      "yearlyRot": 2.447999954223633
+    },
+    {
+      "tradeDate": "2021-07-23",
+      "yearlyRot": 2.23799991607666
+    },
+    {
+      "tradeDate": "2021-07-24",
+      "yearlyRot": 2.0460000038146973
+    },
+    {
+      "tradeDate": "2021-07-26",
+      "yearlyRot": 2.865000009536743
+    },
+    {
+      "tradeDate": "2021-07-27",
+      "yearlyRot": 2.4809999465942383
+    },
+    {
+      "tradeDate": "2021-07-28",
+      "yearlyRot": 2.4019999504089355
+    },
+    {
+      "tradeDate": "2021-07-29",
+      "yearlyRot": 2.322000026702881
+    },
+    {
+      "tradeDate": "2021-07-30",
+      "yearlyRot": 2.1449999809265137
+    },
+    {
+      "tradeDate": "2021-07-31",
+      "yearlyRot": 2.1610000133514404
+    },
+    {
+      "tradeDate": "2021-08-02",
+      "yearlyRot": 2.11299991607666
+    },
+    {
+      "tradeDate": "2021-08-03",
+      "yearlyRot": 2.1559998989105225
+    },
+    {
+      "tradeDate": "2021-08-04",
+      "yearlyRot": 2.178999900817871
+    },
+    {
+      "tradeDate": "2021-08-05",
+      "yearlyRot": 2.1630001068115234
+    },
+    {
+      "tradeDate": "2021-08-06",
+      "yearlyRot": 2.75600004196167
+    },
+    {
+      "tradeDate": "2021-08-07",
+      "yearlyRot": 2.7079999446868896
+    },
+    {
+      "tradeDate": "2021-08-09",
+      "yearlyRot": 2.007999897003174
+    },
+    {
+      "tradeDate": "2021-08-10",
+      "yearlyRot": 3.4110000133514404
+    },
+    {
+      "tradeDate": "2021-08-11",
+      "yearlyRot": 3.3510000705718994
+    }
+  ]
+}
+
+// 历史收益的数据
+export const historyEarn= {
+  "hisList": [
+    {
+      "yearlyRot": 3.351,
+      "dailyProfit": 0.2771,
+      "tradeDate": "2021-08-11"
+    },
+    {
+      "yearlyRot": 3.411,
+      "dailyProfit": 3.0371,
+      "tradeDate": "2021-08-10"
+    },
+    {
+      "yearlyRot": 2.008,
+      "dailyProfit": 0.6232,
+      "tradeDate": "2021-08-09"
+    },
+    {
+      "yearlyRot": 2.708,
+      "dailyProfit": 0.6071,
+      "tradeDate": "2021-08-08"
+    },
+    {
+      "yearlyRot": 2.756,
+      "dailyProfit": 1.4585,
+      "tradeDate": "2021-08-06"
+    },
+    {
+      "yearlyRot": 2.163,
+      "dailyProfit": 0.3189,
+      "tradeDate": "2021-08-05"
+    },
+    {
+      "yearlyRot": 2.179,
+      "dailyProfit": 0.3879,
+      "tradeDate": "2021-08-04"
+    },
+    {
+      "yearlyRot": 2.156,
+      "dailyProfit": 0.418,
+      "tradeDate": "2021-08-03"
+    },
+    {
+      "yearlyRot": 2.113,
+      "dailyProfit": 1.9347,
+      "tradeDate": "2021-08-02"
+    },
+    {
+      "yearlyRot": 2.161,
+      "dailyProfit": 0.6964,
+      "tradeDate": "2021-08-01"
+    }
+  ],
+  "count": 2175
+}

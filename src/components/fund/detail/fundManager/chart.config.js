@@ -38,11 +38,17 @@ export const drawManager = (legendData, xAxisData, seriesData) => {
         const {name, date} = params[0].data.managerData
         const startDate = date.length > 0 ? date[0] : '--'
         const leaveDate = date.length > 0 ? date[1] : '--'
+        let dateRes = null
         var htmlStr = `<div style="margin-bottom: 6px;">
                           <span style="display: inline-block;width: 10px;height: 10px;background: #9b7235;border-radius: 10px;margin-right: 6px;"></span>
                           <span style="color: #9b7235;">${name ? name : '--'}</span>
                         </div>`
-        htmlStr += `<div style="margin-left: 14px;margin-bottom: 6px;">${startDate}~${leaveDate}</div>
+        if(startDate === '--' && leaveDate === '--') { // 当基金经理的任职不存在，则显示当前的x轴日期
+          dateRes = params[0].value[0]
+        } else {
+          dateRes = startDate + '~' + leaveDate
+        }
+        htmlStr += `<div style="margin-left: 14px;margin-bottom: 6px;">${dateRes}</div>
                     <div style="margin-left: 14px;">`
                       params.map(item => {
                         const val = !isEmpty(item.value[1]) ? parseFloat(item.value[1]) > 0 ? `+${item.value[1]}%` : `${item.value[1]}%`: '--'

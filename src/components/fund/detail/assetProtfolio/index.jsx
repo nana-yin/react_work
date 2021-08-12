@@ -58,6 +58,9 @@ export default class AssetProtfolio extends Component {
         const myChart = echarts.init(draw)
         myChart.clear()
         myChart.setOption(drawPie(fundProtfolio))
+        window.addEventListener('resize', () => {
+          myChart.resize()
+        })
         myChart.getZr().on('mousemove', _ => {
           myChart.getZr().setCursorStyle('default')
         })

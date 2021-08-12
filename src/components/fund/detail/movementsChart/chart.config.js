@@ -17,7 +17,7 @@ export const drawLineChart = (legendData, xAxisData, seriesData) => {
     tooltip: {
       show: true,
       trigger: 'axis',
-      padding: [16, 20],
+      padding: [16, 30, 16, 20],
       backgroundColor: '#fff',
       textStyle: {
         fontSize: 14,
@@ -64,7 +64,7 @@ export const drawLineChart = (legendData, xAxisData, seriesData) => {
       borderWidth: 1,
       borderColor: '#d4d4d4',
       borderRadius: 4,
-      padding: [9,10],
+      padding: [6,10, 5,10],
       textStyle: {
         color: '#666',
         fontSize: 12,

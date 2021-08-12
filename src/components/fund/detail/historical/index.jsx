@@ -98,7 +98,7 @@ export default class Historical extends Component {
         name: item,
         type: 'bar',
         barWidth: 16,
-        barGap: '2%',
+        barGap: '12.5%',
         legendHoverLink: false,
         data: serise[index]
       }
@@ -106,13 +106,24 @@ export default class Historical extends Component {
     })
     if (historicalDom) {
       const myChart = echarts.init(historicalDom)
+      let zoomStart = 0 // 缩放轴的起始百分比
+      if(xAxisData && xAxisData.length > 12) {
+        zoomStart = Math.ceil(accMul(12 / xAxisData))
+      } else {
+        zoomStart = 0
+      }
+      
       myChart.setOption(
         drawHistorical(
           legendData,
           xAxisData,
-          seriesData
+          seriesData,
+          zoomStart
         )
       )
+      window.addEventListener('resize', () => {
+        myChart.resize()
+      })
       myChart.getZr().on('mousemove', _ => {
         myChart.getZr().setCursorStyle('default')
       })

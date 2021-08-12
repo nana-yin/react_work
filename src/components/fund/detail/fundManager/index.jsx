@@ -46,7 +46,7 @@ export default class FundManager extends Component {
           const obj = {
             manager: (item.manager && item.manager.length > 0) ? item.manager.join('、') : '--',
             startDate: item.startDate ? item.startDate : '--',
-            leaveDate: item.leaveDate ? item.leaveDate : '在职',
+            leaveDate: item.leaveDate ? item.leaveDate : '至今',
             days: !isEmpty(item.days) ? item.days : '--',
             rtnRate: !isEmpty(item.rtnRate) ? item.rtnRate.toFixed(2) : '--', // 累积收益率 单位:%
             color: MANAGER_COLOR[index]
@@ -60,7 +60,7 @@ export default class FundManager extends Component {
               color: bgColor(MANAGER_COLOR[index],0.5)
             }
           }, {
-            xAxis: obj.leaveDate === '在职' ? newDate : obj.leaveDate
+            xAxis: obj.leaveDate === '至今' ? newDate : obj.leaveDate
           }]
           markAreaData.push(arr)
         })
@@ -142,7 +142,7 @@ export default class FundManager extends Component {
     // 判断当前的日期是否在某个区间内
     for (let i = 0; i < tableData.length; i++) {
       const startDate = (new Date(tableData[i].startDate)).getTime()
-      const leaveDate = tableData[i].leaveDate === '在职' ? (new Date(this.state.newDate)).getTime() : (new Date(tableData[i].leaveDate)).getTime()
+      const leaveDate = tableData[i].leaveDate === '至今' ? (new Date(this.state.newDate)).getTime() : (new Date(tableData[i].leaveDate)).getTime()
       if (currentDate >= startDate && currentDate <= leaveDate) {
         managerLast.name = tableData[i].manager
         managerLast.date[0] = tableData[i].startDate
@@ -158,6 +158,9 @@ export default class FundManager extends Component {
     if (managerDom) {
       const myChart = echarts.init(managerDom)
       myChart.setOption(drawManager(legendData,xAxisData,seriesData))
+      window.addEventListener('resize', () => {
+        myChart.resize()
+      })
       myChart.getZr().on('mousemove', _ => {
         myChart.getZr().setCursorStyle('default')
       })
