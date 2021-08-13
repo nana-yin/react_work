@@ -32,4 +32,10 @@
   .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
     background-color: #9b7235;
   }
+  .ant-radio-button-wrapper:focus-within {
+    box-shadow: none;
+  }
+  .ant-radio-button-wrapper-checked:not([class*=' ant-radio-button-wrapper-disabled']).ant-radio-button-wrapper:first-child {
+    border-right-color: #9b7235;
+  }
 }

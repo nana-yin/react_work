@@ -18,6 +18,9 @@ export const TABS = {
   }, {
     key: '6',
     name: '产品报告'
+  }, {
+    key: '7',
+    name: '系列产品'
   }],
   '货币型基金': [{
     key: '1',

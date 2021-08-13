@@ -172,7 +172,7 @@ export default class FundManager extends Component {
       <div className="fundManager-component">
         <div className="title">基金经理</div>
         <div className="managerChart"></div>
-        <Table columns={columns} dataSource={tableData} pagination={false} />
+        <Table columns={columns} rowKey="manager" dataSource={tableData} pagination={false} />
       </div>
     )
   }

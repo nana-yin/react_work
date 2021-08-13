@@ -17,6 +17,8 @@ import AssetProtfolio from '@/components/fund/detail/assetProtfolio'
 import IndustyConfig from '@/components/fund/detail/industyConfig'
 // 重仓股票
 import HeavyStock from '@/components/fund/detail/heavyStock'
+// 重仓债券
+import HeavyBond from '@/components/fund/detail/heavyBond'
 // 引入基金经理组件
 import FundManagerCom from '@/components/fund/detail/fundManager'
 // 引入规模分析组件
@@ -25,6 +27,8 @@ import ScaleAnalysis from '@/components/fund/detail/scaleAnalysis'
 import SceneAnalysis from '@/components/fund/detail/sceneAnalysis'
 // 引入产品报告组件
 import ProductReport from '@/components/fund/detail/productReport'
+// 引入系列产品组件
+import SeriesProduct from '@/components/fund/detail/seriesProduct'
 // 货币型基金的七日年化收益
 import Annual from '@/components/fund/detail/annual'
 // 货币型基金的历史收益
@@ -43,10 +47,8 @@ class Fund extends PureComponent {
     isNav: false, // 是否是货币型基金，false表示是非货币
     detail: {}, // 基金卡详情数据
     tagList: [], // 标签列表
-    activeTab: '1', // 当前活跃的基金的表现形式tab中的key
+    activeTab: '2', // 当前活跃的基金的表现形式tab中的key
     activeMonth: 1, // 业绩表现中活跃的tab
-    movementsHasData: false, // 业绩表现的数据是否是空
-    performanceData: [], // 业绩表现数据
     basicLoading: true, // 基础信息是否处于加载中
     fundId: '11', // 基金id
     rawInvestType: '', // 从后端拿到的基金类型的代号
@@ -112,7 +114,7 @@ class Fund extends PureComponent {
       this.tagInit(industryLablesList)
       if (fundBasic.fundNavS && (fundBasic.fundNavS.length > 0)) { // 非货币型基金
         const { chg, navUnit, tradeDate, accumNav } = fundBasic.fundNavS[0]
-        // 日涨跌,保留两位小数
+        // 最新涨跌,保留两位小数
         const chgOpera = this.isOriginal(chg) ? accMul(chg).toFixed(2) : '--'
         detail.chg = chgOpera !== '--' ? chgOpera > 0 ? `+${chgOpera}%` : `${chgOpera}%` : '--'
         // 单位净值,保留四位小数
@@ -133,7 +135,7 @@ class Fund extends PureComponent {
         detail.assetTotalAmount = newTotalAmount !== '--' ? this.filterFundScale(assetTotalAmount) + '亿元' : '--'
         // 最新规模对应的日期
         detail.assetTotalAmountDate = assetTotalAmountTradeDate || '--'
-        // 基金公司
+        // 管理人
         detail.managementComp = managementComp || '--'
         this.setState({
           isNav: false
@@ -181,7 +183,7 @@ class Fund extends PureComponent {
           <Basic detail={detail} basicLoading={basicLoading} isNav={isNav} tagList={tagList}/>
           {/* 非货币型基金tab显示 */}
           {
-            isNav && 
+            !isNav && 
             <Tabs activeKey={activeTab} onChange={this.onChange}>
               {
                 TABS['普通股票型'].map(item => {
@@ -193,7 +195,7 @@ class Fund extends PureComponent {
             </Tabs>
           }
           {
-            isNav &&
+            !isNav &&
             <div className="middle-content">
             {
               activeTab==='1' &&
@@ -217,6 +219,7 @@ class Fund extends PureComponent {
                 <AssetProtfolio fundId={fundId} />
                 <IndustyConfig fundId={fundId} />
                 <HeavyStock fundId={fundId} />
+                <HeavyBond fundId={fundId} />
               </div>
             }
             {
@@ -234,11 +237,15 @@ class Fund extends PureComponent {
               activeTab ==='6' &&
               <ProductReport />
             }
+            {
+              activeTab ==='7' &&
+              <SeriesProduct />
+            }
           </div>
           }
           {/* 货币型基金tab进行显示 */}
           {
-            !isNav &&
+            isNav &&
             <div className="middle-content">
               <Tabs activeKey={activeTab} onChange={this.onChange}>
                 {

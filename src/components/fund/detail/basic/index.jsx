@@ -91,7 +91,7 @@ export default class Basic extends Component {
                         <span className="navUnit">{ detail.navUnit }</span>
                       </div>
                       <div className="data__bottom">
-                        <span className="cn">日涨跌/单位净值</span>
+                        <span className="cn">最新涨跌/单位净值</span>
                         <span className="date">({ detail.tradeDate })</span>
                       </div>
                     </Col>
@@ -110,6 +110,26 @@ export default class Basic extends Component {
                       </div>
                       <div className="data__bottom">
                         <span className="cn">近一年涨跌幅</span>
+                      </div>
+                    </Col>
+                    {/* 只有私募基金->浮动收益类显示，代替 近一年涨跌幅 */}
+                    <Col>
+                      <div className="data__top">
+                        {/* detail.chgYear.indexOf('+') !== -1 */}
+                        <span className={detail.chgYear ? 'posVal' : 'negVal'}>{ detail.chgYear }</span>
+                      </div>
+                      <div className="data__bottom">
+                        <span className="cn">历史收益率</span>
+                      </div>
+                    </Col>
+                    {/* 只有私募基金，固定收益类显示，代替前面所有的 */}
+                    <Col>
+                      <div className="data__top">
+                        {/* detail.chgYear.indexOf('+') !== -1 */}
+                        <span className={detail.chgYear ? 'posVal' : 'negVal'}>{ detail.chgYear }</span>
+                      </div>
+                      <div className="data__bottom">
+                        <span className="cn">业绩比较基准</span>
                       </div>
                     </Col>
                   </div>
@@ -139,11 +159,12 @@ export default class Basic extends Component {
                   </div>
                 }
               </Row>
-              {/* 基金相关数据  非货币型基金显示 */}
-              {
-                !isNav &&
-                <div className="relateData">
-                  <Row gutter={[72,0]} type="flex">
+              {/* 基金相关数据  非货币型基金-->公募 、私募基金显示 */}
+              <div className="relateData">
+                <Row gutter={[72,0]} type="flex">
+                  {
+                    // 公募基金
+                    !isNav &&
                     <Col>
                       <div className="relateData-top">
                         <span>成立日期</span>
@@ -155,33 +176,45 @@ export default class Basic extends Component {
                         <span className="newDate">（{ detail.assetTotalAmountDate }）</span>
                       </div>
                     </Col>
-                    <Col>
-                      <div className="relateData-top">
-                        <span>基金经理</span>
-                        <span className="text">
-                          { detail.fundManager }
-                        </span>
-                      </div>
-                      <div className="relateData-bottom">
-                        <span>基金公司</span>
-                        <span className="text">{ detail.managementComp }</span>
-                      </div>
-                    </Col>
-                    <Col>
-                      <div className="relateData-top">
-                        <span>产品状态</span>
-                        <span className="text status">
-                          正常开放
-                        </span>
-                      </div>
-                      <div className="relateData-bottom">
-                        <span>状态描述</span>
-                        <span className="text">子产品开放；7*24小时开放。</span>
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
-              }
+                  }
+                  {/* 私募基金--》浮动收益类显示，代替上面的成立日期和最新规模*/}
+                  <Col>
+                    <div className="relateData-top">
+                      <span>成立日期</span>
+                      <span className="text">{ detail.setupDate }</span>
+                    </div>
+                    <div className="relateData-bottom">
+                      <span>到期日期</span>
+                      <span className="text">{ detail.setupDate }</span>
+                    </div>
+                  </Col>
+                  <Col>
+                    <div className="relateData-top">
+                      {/* 投资经理-->私募基金显示投资经理 */}
+                      <span>基金经理</span>
+                      <span className="text">
+                        { detail.fundManager }
+                      </span>
+                    </div>
+                    <div className="relateData-bottom">
+                      <span>管理人&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                      <span className="text">{ detail.managementComp }</span>
+                    </div>
+                  </Col>
+                  <Col>
+                    <div className="relateData-top">
+                      <span>产品状态</span>
+                      <span className="text status">
+                        正常开放
+                      </span>
+                    </div>
+                    <div className="relateData-bottom">
+                      <span>状态描述</span>
+                      <span className="text">子产品开放；7*24小时开放。</span>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
             </div>
           }
           {/* <Empty empty-text="暂无数据" /> */}

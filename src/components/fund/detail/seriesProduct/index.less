@@ -1,20 +1,15 @@
-.fundManager-component {
+.seriesProduct {
   .title {
     padding: 14px 20px;
     border-bottom: 1px solid #ededed;
     font-size: 18px;
     font-weight: 600;
-    line-height: 25px;
+    line-height: 26px;
     color: #333;
   }
-  .managerChart {
-    width: 100%;
-    height: 382px;
-  }
   .ant-table {
-    border-top: 1px dashed #ededed;
-    padding: 20px 0;
     margin: 20px 20px 0;
+    padding-bottom: 20px;
     font-size: 14px;
     line-height: 20px;
     color: #333;
@@ -22,18 +17,23 @@
   .ant-table-thead > tr > th {
     background: #f5f7fa;
     border-bottom-color: #ebeef5;
-    padding: 8px 20px;
+    padding: 8px 10px;
     color: #999;
+    &:last-of-type {
+      text-align: right;
+    }
   }
   .ant-table-tbody > tr > td {
-    padding: 8px 20px;
+    padding: 8px 10px;
     border-bottom-color: #ebeef5;
+    &:last-of-type {
+      padding-right: 24px;
+      text-align: right;
+    }
   }
-  .managerColor {
-    display: inline-block;
-    margin-right: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
+  .downLoad {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 // 引入表格、分页组件
-import { Table,Pagination} from 'antd';
+import { Table,Pagination,ConfigProvider} from 'antd';
+// 引入中文显示
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
 // 引入表格的表头
 import {columns} from './table.config'
 // 引入历史收益数据
@@ -38,7 +40,7 @@ export default class HistoryEarn extends Component {
      * @param data 判定的值
      * return false表示不是
     */
-  isOriginal(data) {
+  isOriginal = (data) => {
     return (data && (data !== -999))
   }
   /**
@@ -57,7 +59,7 @@ export default class HistoryEarn extends Component {
         // 日期
         const tradeDate = item.tradeDate || '--'
         const obj = {
-          key: index,
+          key: `${index}`,
           date: tradeDate,
           netVal: yearlyRot,
           totalVal: dailyProfit
@@ -101,7 +103,7 @@ export default class HistoryEarn extends Component {
     })
   }
   render() {
-    const {listData,loading,currentPage,total} = this.setState
+    const {listData,loading,currentPage,total} = this.state
     return (
       <div className="historyEarn">
         <div className="historyEarn-title">历史收益</div>
@@ -109,9 +111,17 @@ export default class HistoryEarn extends Component {
           <Table columns={columns} dataSource={listData} pagination={false} loading={loading} />
           {
             total > 0 &&
-            <Pagination current={currentPage} showSizeChanger showQuickJumper total={total}
-            onChange={this.onChange}
-            onShowSizeChange={this.handleShowSizeChange} />
+            <ConfigProvider locale={zh_CN}>
+              <Pagination
+                current={currentPage}
+                total={total}
+                showSizeChanger
+                showQuickJumper
+                showTotal={total => `共 ${total} 条`}
+                onChange={this.onChange}
+                onShowSizeChange={this.handleShowSizeChange}
+              />
+            </ConfigProvider>
           }
         </div>
       </div>

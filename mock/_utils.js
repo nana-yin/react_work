@@ -1,3 +1,6 @@
+
+export Mock from 'mockjs'
+export qs from 'qs'
 /**
  * Query objects that specify keys and values in an array where all values are objects.
  * @param   {array}         array   An array where all values are objects, like [{key:1},{key:2}].
@@ -55,5 +58,3 @@ export const Constant = {
   },
 }
 
-export Mock from 'mockjs'
-export qs from 'qs'
