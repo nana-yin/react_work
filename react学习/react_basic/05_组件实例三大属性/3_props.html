@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_组件实例三大属性_props</title>
+</head>
+<body>
+    <div id="test"></div>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom 扩展库，用于支持react操作Dom -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <!-- 引入prop-types，用于对组件标签属性进行限制 -->
+    <script type="text/javascript" src="../js/prop-types.js"></script>
+    <!-- 此处一定要写babel -->
+    <script type="text/babel">
+        // 1.创建组件
+        class Person extends React.Component{
+            render() {
+                const {name,sex,age} = this.props
+                return (
+                    <ul>
+                        <li>姓名： {name}</li>
+                        <li>性别： {sex}</li>
+                        <li>年龄： {age+1}</li>
+                    </ul>
+                )
+            }
+        }
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            sex: PropTypes.string,
+            age: PropTypes.number,
+            speak: PropTypes.func
+        }
+
+        Person.defaultProps = {
+            sex: '默认年龄',
+            age: 18
+        }
+        const person1 = {
+            name: 'and',
+            age: 30,
+            sex: '男'
+        }
+        ReactDOM.render(<Person name="tom" age={18} sex="女" speak={speak} />, document.getElementById('test'))
+        ReactDOM.render(<Person name="jerry" age="20" sex="男"/>, document.getElementById('test1'))
+        ReactDOM.render(<Person {...person1} />, document.getElementById('test2'))
+        function speak() {}
+    </script>
+</body>
+</html>

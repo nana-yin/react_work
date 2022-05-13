@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_react生命周期(旧)</title>
+</head>
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom 扩展库，用于支持react操作Dom -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // 创建组件
+        class Life extends React.Component{
+            state = {
+                opacity: 1
+            }
+            death = () => {
+                console.log('点击消失')
+                // clearInterval(this.timer)
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+            // 组件即将卸载
+            componentWillUnmount() {
+                // 清除定时器
+                clearInterval(this.timer)
+            }
+            // 组件挂载完成
+            componentDidMount() {
+                this.timer = setInterval(() => {
+                    let {opacity} = this.state
+                    opacity-=0.1
+                    if (opacity <= 0) opacity =1
+                    this.setState({
+                        opacity
+                    })
+                },200)
+            }
+            // 初始化渲染、状态更新之后
+            render() {
+                return (
+                    <div>
+                        <h1 style={{opacity: this.state.opacity}}>React学不会怎么办？</h1>
+                        <button onClick={this.death}>消失</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Life/>, document.getElementById('test'))
+    </script>
+</body>
+</html>

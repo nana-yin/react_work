@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数柯里化</title>
+</head>
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom 扩展库，用于支持react操作Dom -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // 创建组件
+        /*
+            高阶函数：满足以下条件的任意一个
+                1.A函数的参数是一个函数，那么就称为高阶函数
+                2.A函数的返回值是一个函数
+
+            函数柯里化
+        */
+        class Login extends React.Component{
+            state = {
+                username: '',
+                psd: ''
+            }
+            handleSubmit = (event) => {
+                event.preventDefault()
+                const {username,psd} = this.state
+                alert(`用户名：${username},密码：${psd}`)
+            }
+            saveData(inputType) {
+                return (event) => {
+                    this.setState({
+                        [inputType]: event.target.value
+                    })
+                }
+            }
+            render() {
+                return(
+                    <form action="https://www.bilibili.com/video/BV1wy4y1D7JT?p=33&spm_id_from=pageDriver" onSubmit={this.handleSubmit}>
+                        用户名：<input onChange={this.saveData('username')} type="text" placeholder="请输入用户名" name="username" /><br/><br/>
+                        密码：<input onChange={this.saveData('psd')} type="password" placeholder="请输入密码" name="psd" /><br/><br/>
+                        <button>登录</button>
+                    </form>
+                )
+            }
+        }
+        // 渲染组件
+        ReactDOM.render(<Login />, document.getElementById('test'))
+    </script>
+</body>
+</html>

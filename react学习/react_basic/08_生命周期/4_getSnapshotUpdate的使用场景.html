@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_getSnapshotUpdate的使用场景</title>
+    <style>
+        .list {
+            width: 300px;
+            height: 150px;
+            background: paleturquoise;
+            overflow: auto;
+        }
+        .name {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+    <!-- 引入react-dom 扩展库，用于支持react操作Dom -->
+    <script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+    <script type="text/babel">
+        // 创建组件
+        class List extends React.Component {
+            state = {
+                nameArr: []
+            }
+            componentDidMount() {
+                setInterval(() => {
+                    const {nameArr}  = this.state
+                    const news = '新闻' + (nameArr.length + 1)
+                    this.setState({
+                        nameArr: [news, ...nameArr]
+                    })
+                }, 1000)
+            }
+            getSnapshotBeforeUpdate() {
+                console.log('getSnapshotBeforeUpdate')
+                return this.refs.list.scrollHeight
+            }
+            componentDidUpdate(preProps, preState, height) {
+                this.refs.list.scrollTop += this.refs.list.scrollHeight - height
+            }
+            render() {
+                return (
+                    <div className="list" ref="list">
+                        {
+                            this.state.nameArr.map((n, index) => {
+                                return <div className="name" key={index}>{n}</div>
+                            })
+                        }
+                    </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(<List />, document.getElementById('test'))
+    </script>
+</body>
+</html>

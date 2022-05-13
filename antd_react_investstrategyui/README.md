@@ -1,5 +1,5 @@
-# react_work
-react项目练习。
+# 使用框架改写的投资决策可视化一期
+
 
 # 原作者的模板：
 <p align="center">

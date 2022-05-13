@@ -1,0 +1,59 @@
+.fundDetail {
+  width: 1200px;
+  margin: 12px auto 0;
+  padding: 20px 0 0;
+  overflow: auto;
+  background: #fff;
+  border-bottom: 30px solid #F5F6FB;
+  .ant-tabs {
+    border-bottom: 12px solid #F5F6FB;
+  }
+  .ant-tabs-top > .ant-tabs-nav, .ant-tabs-bottom > .ant-tabs-nav, .ant-tabs-top > div > .ant-tabs-nav, .ant-tabs-bottom > div > .ant-tabs-nav {
+    margin: 0 0 0 20px;
+  }
+  .ant-tabs-tab-btn {
+    font-size: 18px;
+    line-height: 25px;
+    color: #999;
+  }
+  .ant-tabs-tab {
+    padding: 20px 0;
+  }
+  .ant-tabs-tab + .ant-tabs-tab {
+    margin-left: 50px;
+  }
+  .ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
+    border: none;
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn, .ant-tabs-tab-btn:focus, .ant-tabs-tab-remove:focus, .ant-tabs-tab-btn:active, .ant-tabs-tab-remove:active{
+    color: #9b7235;
+    font-weight: 600;
+  }
+  .ant-tabs-ink-bar {
+    width: 72px!important;
+    background-color: #9b7235;
+  }
+  .middle {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0 36px;
+    background-color: #fff;
+    &-content{
+      .historical {
+        border-top: 12px solid #F0F1F4;
+        .title {
+          padding: 14px 20px;
+          border-bottom: 1px solid #ededed;
+          font-size: 18px;
+          line-height: 25px;
+          color: #333;
+          font-weight: 600;
+        }
+        .date {
+          color: #999;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.movementsCharts {
+  padding-bottom: 20px;
+  .lineChart {
+    width: 100%;
+    height: 400px;
+  }
+  .ant-table {
+    border-top: 1px dashed #ededed;
+    padding-top: 20px;
+    margin: 20px 20px 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #333;
+  }
+  .ant-table-thead > tr > th {
+    background: #f5f7fa;
+    border-bottom-color: #ebeef5;
+    padding: 8px 20px;
+    font-weight: 600;
+  }
+  .ant-table-tbody > tr > td {
+    padding: 8px 20px;
+    border-bottom-color: #ebeef5;
+    &:first-of-type{
+      font-weight: 600;
+    }
+  }
+  .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    background: none;
+  }
+}
+.score-top{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ededed;
+  font-size: 0px;
+  .title {
+    padding: 14px 0 14px 20px;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: bottom;
+    font-weight: 600;
+    color: #333;
+  }
+  .tabs{
+    margin-right: 40px;
+    .tab{
+      font-size: 16px;
+      line-height: 22px;
+      color: #999999;
+      display: inline-block;
+      vertical-align: bottom;
+      line-height: 32px;
+      width: 88px;
+      height: 32px;
+      margin-top: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .tabActive{
+      border-radius: 4px;
+      background-color: rgba(155,114,53,0.1);
+      color: #9b7235;
+    }
+  }
+
+}

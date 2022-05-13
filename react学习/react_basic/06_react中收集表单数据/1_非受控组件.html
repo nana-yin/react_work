@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_非受控组件</title>
+</head>
+<body>
+    <div id="test"></div>
+    <!-- 引入react核心库 -->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom 扩展库，用于支持react操作Dom -->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+    <!-- 引入babel，用于将jsx转为js -->
+    <script type="text/javascript" src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // 创建组件
+        class Login extends React.Component{
+            handleSubmit = (event) => {
+                event.preventDefault()
+                const {userName,psd} = this
+                alert(`用户名：${userName.value},密码：${psd.value}`)
+            }
+            render() {
+                return(
+                    <form action="https://www.bilibili.com/video/BV1wy4y1D7JT?p=33&spm_id_from=pageDriver" onSubmit={this.handleSubmit}>
+                        用户名：<input ref={c => this.userName = c} type="text" placeholder="请输入用户名" name="userName" /><br/><br/>
+                        密码：<input ref={ c => this.psd = c } type="text" placeholder="请输入密码" name="psd" /><br/><br/>
+                        <button>登录</button>
+                    </form>
+                )
+            }
+        }
+        // 渲染组件
+        ReactDOM.render(<Login />, document.getElementById('test'))
+    </script>
+</body>
+</html>

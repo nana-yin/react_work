@@ -1,0 +1,43 @@
+.assetsAllocation {
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #ededed;
+    &__title {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 600;
+      color: #333;
+    }
+    &__date {
+      font-size: 14px;
+      line-height: 14px;
+      color: #666;
+    }
+  }
+  &-chart {
+    position: relative;
+    margin-top: 30px;
+    border-bottom: 12px solid #f5f6fb;
+    #pieChart {
+      height: 190px;
+    }
+    .data {
+      position: absolute;
+      top: 17%;
+      right: 24%;
+      div {
+        margin-bottom: 8px;
+        text-align: right;
+        font-size: 14px;
+        line-height: 20px;
+        color: #666;
+        &:last-of-type {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
